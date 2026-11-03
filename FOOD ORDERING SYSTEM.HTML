@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Ordering System</title>
+    <style>
+        body {
+            background-color: lightyellow;
+            font-family: Arial;
+            text-align: center;
+        }
+        h1 {
+            background-color: orange;
+            color: white;
+            padding: 15px;
+        }
+        .box {
+            background-color: white;
+            border: 1px solid black;
+            width: 250px;
+            margin: 15px auto;
+            padding: 10px;
+        }
+
+        button {
+            background-color: orange;
+            padding: 8px;
+            border: none;
+        }
+
+        input {
+            padding: 8px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Food Ordering System</h1>
+
+    <h2>Food Menu</h2>
+
+    <div class="box">
+        <h3>Pizza</h3>
+        <p>Price: 150</p>
+        <button onclick="add(150)">Add</button>
+    </div>
+
+    <div class="box">
+        <h3>Burger</h3>
+        <p>Price: 100</p>
+        <button onclick="add(100)">Add</button>
+    </div>
+
+    <div class="box">
+        <h3>Noodles</h3>
+        <p>Price: 80</p>
+        <button onclick="add(80)">Add</button>
+    </div>
+
+    <h2>Your Order</h2>
+
+    <p>Total Amount: Rs. <span id="total">0</span></p>
+
+    <input type="text" id="name" placeholder="Enter Name">
+    <br>
+    <input type="text" id="address" placeholder="Enter Address">
+    <br><br>
+
+    <button onclick="order()">Place Order</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+
+        var total = 0;
+
+        function add(price) {
+            total = total + price;
+
+            document.getElementById("total").innerHTML = total;
+        }
+
+        function order() {
+
+            var name = document.getElementById("name").value;
+            var address = document.getElementById("address").value;
+
+            if (total == 0 || name == "" || address == "") {
+                alert("Please enter all details");
+            }
+            else {
+                document.getElementById("result").innerHTML =
+                "Thank You " + name + "! Your Order is Successful.";
+
+                total = 0;
+                document.getElementById("total").innerHTML = total;
+            }
+        }
+
+    </script>
+
+</body>
+</html>
